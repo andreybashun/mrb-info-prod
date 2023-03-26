@@ -1,0 +1,43 @@
+version: '3.0'
+
+services:
+  server:
+    container_name: server
+    build:
+      context: server
+      dockerfile: Dockerfile
+    env_file:
+      - ./server/.env
+    volumes:
+      - .:/server
+      - /server/node_modules
+
+    ports:
+      - "5000:5000"
+    command: npm run start
+    restart: always
+
+
+  client:
+    container_name: client
+    ports:
+      - "3000:3000"
+    build:
+      context: client
+      dockerfile: Dockerfile
+      
+    env_file:
+      - ./client/.env
+    command: npm run start
+    depends_on: 
+         - server
+    restart: always
+    volumes:
+      - .:/client
+      - /client/node_modules
+
+ 
+    
+
+
+
