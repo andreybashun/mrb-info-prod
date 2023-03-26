@@ -14,6 +14,8 @@ const {
     DB_HOST,
     DB_PORT,
     DB_NAME,
+    MONGODB_USER,
+    MONGODB_PASS
 } = process.env;
 
 @Module ({
@@ -25,8 +27,8 @@ const {
                 ssl: true,
                 sslValidate: true,
                 sslCA: MONGODB_SSLCA,
-                user: process.env.MONGODB_USER,
-                pass: process.env.MONGODB_PASS
+                user: 'info-db',
+                pass: 'GL<24@nlciu'
             }
         ),
 
