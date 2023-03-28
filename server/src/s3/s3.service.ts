@@ -68,7 +68,7 @@ export class S3Service {
 
 
     async getFile (key): Promise<any>{
-        const path = '\\' + key
+        const path = 'C:\\Users\\root\\Downloads\\' + key
         const file = require('fs').createWriteStream(path);
         const s3 = this.getS3 ()
         await s3.getObject ({Bucket: process.env.BUCKET_S3, Key: key}).createReadStream().pipe(file);

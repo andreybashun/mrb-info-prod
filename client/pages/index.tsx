@@ -47,7 +47,6 @@ const Index = ({users}) => {
                     />
                 </FormControl>
                 <Button onClick={() => {
-                    console.log('000000')
                     for (let i = 0; i < users.length; i++){
                         console.log(i, users[i].email , users[i].password, password.value )
                         if (users[i].email === email.value && users[i].password === password.value){
@@ -79,7 +78,7 @@ const Index = ({users}) => {
 export default Index;
 
 export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
-    const res = await  axios.get('158.160.7.144:5000/user')
+    const res = await  axios.get('51.250.96.224:5000/user')
     return {
         props: {
             users: res.data
