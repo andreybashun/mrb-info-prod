@@ -78,7 +78,7 @@ const Index = ({users}) => {
 export default Index;
 
 export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
-    const res = await  axios.get('51.250.96.224:5000/user')
+    const res = await  axios.get('51.250.27.240:5000/user')
     return {
         props: {
             users: res.data
